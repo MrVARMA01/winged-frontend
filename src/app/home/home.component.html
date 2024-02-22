@@ -1,0 +1,330 @@
+<section class="sectionA">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div id="carousels" class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets\Home\2150765713.jpg" class="img-fluid d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="assets\Home\airplane-flying-mountain-range-sunset-generated-by-ai.jpg"
+                    class=" img-fluid d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="assets\Home\beautiful-shot-bald-eagle-flying-forest-with-fog.jpg"
+                    class="img-fluid d-block w-100" alt="">
+            </div>
+            <div id="c-text" class="carousel-caption top-0 " style="margin-top: 200px !important;">
+                <h1 class="mt-5 fw-bolder">ELEVATE YOUR SPACE WITH <br> <span>Winged !</span></h1>
+                <p class="mt-5 fs-5">Your Premier Building and Repairing Services Partner.</p>
+                <button type="button" class="btn btn-info mt-5" style="color: #ffffff;" routerLink="contact-us">Raise A Ticket <i
+                        class="fa-solid fa-circle-chevron-right fa-beat-fade fa-lg"
+                        style="padding-left: 5px;"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="sectionB">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h2>SERVICES</h2>
+                <p class="text3">Our Extensive Range of Services.</p>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 mt-2 g-4">
+            <div class="col">
+                <div id="cardB" class="card h-100 rounded-5 justify-content-center text-center">
+                    <img src="assets\Home\6869959_29118.jpg" class="card-img-top" alt="...">
+                    <div class="card-body top-50 start-50 translate-middle">
+                        <h3 class="card-title p-2">Electronics</h3>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div id="cardB" class="card h-100 rounded-5 justify-content-center text-center">
+                    <img src="assets\Home\5150528_6937.jpg" class="card-img-top" alt="...">
+                    <div class="card-body top-50 start-50 translate-middle">
+                        <h3 class="card-title p-2">Electricals</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div id="cardB" class="card h-100 rounded-5 justify-content-center text-center">
+                    <img src="assets\Home\10276612_4421964.jpg" class="card-img-top" alt="...">
+                    <div class="card-body top-50 start-50 translate-middle">
+                        <h3 class="card-title p-2">Software & Applications</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div id="cardB" class="card h-100 rounded-5 justify-content-center text-center">
+                    <img src="assets\Home\11668278_20945161.jpg" class="card-img-top" alt="...">
+                    <div class="card-body top-50 start-50 translate-middle">
+                        <h3 class="card-title p-2">Painting and Renovation</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div id="cardB" class="card h-100 rounded-5 justify-content-center text-center">
+                    <img src="assets\Home\33905801_indomay205.jpg" class="card-img-top" alt="...">
+                    <div class="card-body top-50 start-50 translate-middle">
+                        <h3 class="card-title p-2">Plumbing</h3>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div id="cardB" class="card h-100 rounded-5 justify-content-center text-center">
+                    <img src="assets\Home\3998779_14474.jpg" class="card-img-top" alt="...">
+                    <div class="card-body top-50 start-50 translate-middle">
+                        <h3 class="card-title p-2">More Services</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="sectionC">
+    <div class="fluid-container bg-light">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-6 p-5">
+                <h2 style="font-size: 60px; color: black;">Experience the Winged Difference Today!</h2>
+                <p style="margin-top: 100px;">Ready to elevate your space with Winged's premier repairing and building
+                    services? Contact us today
+                    to schedule a consultation and discover how we can bring your vision to life. Whether you're
+                    in need
+                    of electrical repairs, electronic troubleshooting, mechanical solutions, carpentry work,
+                    painting
+                    services, or software solutions, Winged has you covered. Let us be your trusted partner in
+                    enhancing
+                    the beauty, functionality, and efficiency of your home or business.</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6" style="overflow: hidden;">
+                <img src="assets\Home\different-electrical-tools-wooden-background-flat-lay (1).jpg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="sectionE container">
+    <div class="row">
+        <div id="TicketForm" class="col-md-6">
+            <h3 class="mt-5 p-3">
+                Ready to experience the Winged difference? Get in touch with us today to discuss your project requirements and schedule a consultation. Whether you need a quick repair or a complete renovation, we're here to help you every step of the way.
+            </h3>
+        </div>
+        <div id="TicketForm" class="col-md-6">
+            <form class="bg-light rounded-5 d-flex row p-4" (ngSubmit)="newTicket();reset()" action="">
+                <div class="form-floating col-12 mt-3 mb-5">
+                    <h1>Choose your service Here!</h1>
+                </div>
+                <div class="form-floating col-xxl-6 mb-3">
+                    <input type="email" class="form-control" id="floatingInput" [(ngModel)]="ticket.customerName" [ngModelOptions]="{standalone: true}" placeholder="name@example.com">
+                    <label class="ms-3" for="floatingInput">Full Name</label>
+                </div>
+                <div class="form-floating col-xxl-6 mb-3">
+                    <input type="email" class="form-control" id="floatingInput" [(ngModel)]="ticket.email" [ngModelOptions]="{standalone: true}" placeholder="name@example.com">
+                    <label class="ms-3" for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating col-xxl-6 mb-3">
+                    <input type="email" class="form-control" id="floatingInput" [(ngModel)]="ticket.phone" [ngModelOptions]="{standalone: true}" placeholder="name@example.com">
+                    <label class="ms-3" for="floatingInput">Phone</label>
+                </div>
+                <div class="form-floating col-12 mb-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" [(ngModel)]="ticket.address" [ngModelOptions]="{standalone: true}" id="floatingTextarea"></textarea>
+                    <label class="ms-3" for="floatingTextarea">Address</label>
+                </div>
+                <div class="form-floating col-xxl-6 mb-3">
+                    <select class="form-select" id="floatingSelect" [(ngModel)]="ticket.serviceField" [ngModelOptions]="{standalone: true}" aria-label="Floating label select example">
+                        <option selected value="">----- Select -----</option>
+                        <option value="Electrical Services">Electrical Services</option>
+                        <option value="Electronics Repair">Electronics Repair</option>
+                        <option value="Mechanical Solutions">Mechanical Solutions</option>
+                        <option value="Software Solutions">Software Solutions</option>
+                        <option value="Carpentry Services">Carpentry Services</option>
+                    </select>
+                    <label class="ms-3" for="floatingSelect">Pick Service Field</label>
+                </div>
+                <div class="form-floating col-xxl-6 mb-3">
+                    <select class="form-select" id="floatingSelect" [(ngModel)]="ticket.service" [ngModelOptions]="{standalone: true}" aria-label="Floating label select example">
+                        <option selected>----- Select -----</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Washing Machine">Washing Machine</option>
+                        <option value="TV">TV</option>
+                        <option value="Renovation">Renovation</option>
+                    </select>
+                    <label class="ms-3" for="floatingSelect">Pick The Service</label>
+                </div>
+                <div class="form-floating col-12 mb-3">
+                    <textarea class="form-control" [(ngModel)]="ticket.issueDescription" [ngModelOptions]="{standalone: true}" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px"></textarea>
+                    <label class="ms-3" for="floatingTextarea2">Issue In Detail</label>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-5">
+                    <button class="btn btn-primary rounded-5" type="submit" >Activate a Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="sectionD">
+    <div class="fluid-container text-center">
+        <div class="bg-white">
+            <h2 style="color: #a2b9ff;">WHY</h2>
+            <p class="text3">Why Choose Winged?</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 mt-2 g-4">
+            <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center ">
+                <div id="cardD" class="card h-75 w-50 m-5 rounded-0">
+                    <div class="cardD-icon w-100 align-items-center">
+                        <img src="assets\Home\excellence.png" class="mt-5" alt="">
+                        <div class="cardD-text mt-2">
+                            <h3>Expertise & Excellence</h3>
+                            <p class="mt-2" style="font-size: 10px; padding: 5px;"> With our wide range of services, you
+                                can address multiple needs with a single point of contact, saving time and hassle.</p>
+                        </div>
+                    </div>
+                    <img src="assets\Home\Green Pink Minimalist Doodle A4 Document.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center ">
+                <div id="cardD" class="card h-75 w-50 m-5 rounded-0">
+                    <div class="cardD-icon w-100 align-items-center">
+                        <img src="assets\Home\guarantee.png" class="mt-5" alt="">
+                        <div class="cardD-text mt-2">
+                            <h3>Commitment & Quality</h3>
+                            <p class="mt-2" style="font-size: 10px; padding: 5px;">Our team prioritizes quality,
+                                delivering exceptional services with precision and attention to detail, from repairs to
+                                installations, to exceed our customers' expectations.</p>
+                        </div>
+                    </div>
+                    <img src="assets\Home\Green Pink Minimalist Doodle A4 Document.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center ">
+                <div id="cardD" class="card h-75 w-50 m-5 rounded-0">
+                    <div class="cardD-icon w-100 align-items-center">
+                        <img src="assets\Home\delivery-service.png" class="mt-5" alt="">
+                        <div class="cardD-text mt-2">
+                            <h3>Prompt & Reliable Service</h3>
+                            <p class="mt-2" style="font-size: 10px; padding: 5px;">Winged prioritizes prompt service
+                                delivery, ensuring efficient task completion without compromising quality, minimal
+                                schedule disruption, and maximum satisfaction.</p>
+                        </div>
+                    </div>
+                    <img src="assets\Home\Green Pink Minimalist Doodle A4 Document.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center ">
+                <div id="cardD" class="card h-75 w-50 m-5 rounded-0">
+                    <div class="cardD-icon w-100 align-items-center">
+                        <img src="assets\Home\solution.png" class="mt-5" alt="">
+                        <div class="cardD-text mt-2">
+                            <h3>Tailored Solutions</h3>
+                            <p class="mt-2" style="font-size: 10px; padding: 5px;">We offer customized solutions to meet
+                                individual customer needs, ensuring alignment with your goals, whether it's a small
+                                repair or a large-scale project.</p>
+                        </div>
+                    </div>
+                    <img src="assets\Home\Green Pink Minimalist Doodle A4 Document.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center ">
+                <div id="cardD" class="card h-75 w-50 m-5 rounded-0">
+                    <div class="cardD-icon w-100 align-items-center">
+                        <img src="assets\Home\sale-tag.png" class="mt-5" alt="">
+                        <div class="cardD-text mt-2">
+                            <h3>Transparent Pricing & Fair</h3>
+                            <p class="mt-2" style="font-size: 10px; padding: 5px;">Winged prioritizes transparency in
+                                pricing, offering fair, competitive quotes that reflect the quality and value of their
+                                services, without hidden fees or surprises.</p>
+                        </div>
+                    </div>
+                    <img src="assets\Home\Green Pink Minimalist Doodle A4 Document.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center ">
+                <div id="cardD" class="card h-75 w-50 m-5 rounded-0">
+                    <div class="cardD-icon w-100 align-items-center">
+                        <img src="assets\Home\location-pin.png" class="mt-5" alt="">
+                        <div class="cardD-text mt-2">
+                            <h3>Peace of Mind Guarantee</h3>
+                            <p class="mt-2" style="font-size: 10px; padding: 5px;">Our commitment to quality and
+                                customer satisfaction is unwavering, and we are committed to working with you to rectify
+                                any issues that may arise during the project.</p>
+                        </div>
+                    </div>
+                    <img src="assets\Home\Green Pink Minimalist Doodle A4 Document.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="sectionF">
+    <div class="row text-center">
+        <div>
+            <h2>LOCATE US!</h2>
+            <P class="text3">You can reach us here!</P>
+        </div>
+        <div class="col-12">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61134.22682451392!2d82.20888985460908!3d16.732380565929297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a381fd8f6cf57c9%3A0x35ba5f35d97ba721!2sYanam%2C%20Puducherry!5e0!3m2!1sen!2sin!4v1708507486010!5m2!1sen!2sin"
+                height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" class="w-100"></iframe>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- <ul>
+                <li>Quality Assurance: We are committed to delivering superior craftsmanship and using only the
+                    highest
+                    quality materials and tools for all our projects.</li>
+
+                <li>Customer-Centric Approach: At Winged, customer satisfaction is our top priority. We work
+                    closely
+                    with
+                    our
+                    clients to understand their needs and deliver personalized solutions that exceed
+                    expectations.
+                </li>
+
+                <li>Timely Service: We understand the importance of completing projects on time and within
+                    budget.
+                    With
+                    Winged,
+                    you can rely on prompt and efficient service, without compromising on quality.</li>
+
+                <li>Competitive Pricing: We offer competitive rates for all our services, providing excellent
+                    value
+                    for
+                    your
+                    investment.</li>
+            </ul> -->

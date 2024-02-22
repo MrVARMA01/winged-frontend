@@ -1,0 +1,89 @@
+.container {
+    overflow: hidden;
+}
+#carousels img{
+    height: 750px;
+    object-fit: cover;
+    filter:brightness(0.6);
+}
+
+span{
+    font-family: "Pacifico", cursive;
+}
+
+section {
+    margin-top: 150px;
+    color: #000000;
+}
+
+section h2 {
+    font-size: 130px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+section .text3 {
+    position: relative;
+    font-size: xx-large;
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        margin-top: 50px;
+    }
+    section h2 {
+        font-size: 50px;
+    }
+}
+
+.sectionA {
+    margin-top: 0px;
+}
+
+#cardB{
+    overflow: hidden;
+}
+#cardB img {
+    /* filter:brightness(0.6); */
+    object-fit: cover;
+}
+#cardB .card-body {
+    position: absolute;
+    color: #000000;
+}
+
+#cardB .card-body h3 {
+    filter:brightness(0.6);
+    font-weight: 900;
+    font-size: 30px;
+} 
+
+.bgImage {
+    width: 100%;
+}
+
+.sectionC p,
+h2 {
+    font-size: 20px;
+    color: #000000;
+}
+.sectionD{
+    background:image-set('assets/Home/fresh-palm-leaves-pink-background.jpg');
+}
+.sectionD p {
+    font-size: 30px;
+    color: #000000;
+}
+#cardD{
+    overflow: hidden;
+    border: 20px solid white;
+}
+#cardD img{
+    object-fit:fill;
+}
+#cardD .cardD-icon{
+    position:absolute;
+}
+#cardD .cardD-icon img{
+    width: 80px;
+}

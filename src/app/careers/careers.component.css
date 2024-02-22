@@ -1,0 +1,37 @@
+#textA{
+    font-size: 30px;
+}
+#textA span{
+    font-size: 80px;
+}
+section h2 {
+    font-size: 130px;
+    font-weight: 900;
+    color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+
+    section h2 {
+        font-size: 50px;
+    }
+}
+.sectionD{
+    background:image-set('assets/Home/fresh-palm-leaves-pink-background.jpg');
+}
+.sectionD p {
+    font-size: 30px;
+    color: #000000;
+}
+#cardD{
+    overflow: hidden;
+    border: 20px solid white;
+}
+#cardD img{
+    object-fit:fill;
+}
+#cardD .cardD-icon{
+    position:absolute;
+}
+#cardD .cardD-icon img{
+    width: 80px;
+}

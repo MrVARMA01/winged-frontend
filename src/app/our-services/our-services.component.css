@@ -1,0 +1,38 @@
+section {
+    margin-top: 150px;
+    color: #000000;
+}
+
+section h2 {
+    font-size: 130px;
+    font-weight: 900;
+    color: #ffffff;
+}
+section .text3 {
+    position: relative;
+    font-size: x-large;
+}
+
+@media screen and (max-width: 768px) {
+
+    section h2 {
+        font-size: 50px;
+    }
+}
+#cardB{
+    overflow: hidden;
+}
+#cardB img {
+    /* filter:brightness(0.6); */
+    object-fit: cover;
+}
+#cardB .card-body {
+    position: absolute;
+    color: #000000;
+}
+
+#cardB .card-body h3 {
+    filter:brightness(0.6);
+    font-weight: 900;
+    font-size: 30px;
+} 

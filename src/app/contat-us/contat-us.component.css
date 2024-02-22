@@ -1,0 +1,18 @@
+#textA{
+    font-size: 30px;
+}
+section h2 {
+    font-size: 130px;
+    font-weight: 900;
+    color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+
+    section h2 {
+        font-size: 50px;
+    }
+}
+.sectionB #text1 span{
+    color: whitesmoke;
+    font-size: xx-large;
+}
