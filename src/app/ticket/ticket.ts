@@ -2,7 +2,7 @@ export class Ticket {
 
     customerName!: string;
     email!: string;
-    phone!: number;
+    phone= 91;
     address!: string;
     serviceField!: string;
     service!: string;

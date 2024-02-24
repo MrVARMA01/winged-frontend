@@ -24,33 +24,35 @@
             </div>
         </div>
         <div id="TicketForm" class="col-md-6 p-5">
-            <form class="bg-light rounded-5 d-flex row p-4" (ngSubmit)="newTicket();reset()" action="">
+            <form [formGroup] ="ticketForm" class="bg-light rounded-5 d-flex row p-4" (ngSubmit)="newTicket();" action="">
                 <div class="form-floating col-12 mt-3 mb-5">
                     <h1>Choose your service Here!</h1>
                 </div>
                 <div class="form-floating col-xxl-6 mb-3">
-                    <input type="email" class="form-control" id="floatingInput" [(ngModel)]="ticket.customerName"
-                        [ngModelOptions]="{standalone: true}" placeholder="name@example.com">
+                    <input type="email" class="form-control  px-3" name="customerName" id="floatingInput" required minlength="4"
+                        formControlName="customerName" placeholder="name@example.com">
+                        <div class="px-3" *ngIf="ticketForm.get('customerName')?.touched && ticketForm.get('customerName')?.hasError('minlength')" 
+                        style="color: red; font-size: 10px;">kindly provide us proper name</div>
                     <label class="ms-3" for="floatingInput">Full Name</label>
                 </div>
                 <div class="form-floating col-xxl-6 mb-3">
-                    <input type="email" class="form-control" id="floatingInput" [(ngModel)]="ticket.email"
-                        [ngModelOptions]="{standalone: true}" placeholder="name@example.com">
+                    <input type="email" class="form-control  px-3" id="floatingInput" formControlName="email" placeholder="name@example.com">
+                    <div class="px-3" *ngIf="ticketForm.get('email')?.touched && ticketForm.get('email')?.hasError('email')" 
+                        style="color: red; font-size: 10px;">kindly provide us valid email id</div>
                     <label class="ms-3" for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating col-xxl-6 mb-3">
-                    <input type="email" class="form-control" id="floatingInput" [(ngModel)]="ticket.phone"
-                        [ngModelOptions]="{standalone: true}" placeholder="name@example.com">
+                    <input type="email" class="form-control px-3" id="floatingInput" formControlName="phone" placeholder="name@example.com">
+                    <div class="px-3" *ngIf="ticketForm.get('phone')?.touched && ticketForm.get('phone')?.hasError('minlength')" 
+                        style="color: red; font-size: 10px;">kindly use this format 91xxxxxxxxxx</div>
                     <label class="ms-3" for="floatingInput">Phone</label>
                 </div>
                 <div class="form-floating col-12 mb-3">
-                    <textarea class="form-control" placeholder="Leave a comment here" [(ngModel)]="ticket.address"
-                        [ngModelOptions]="{standalone: true}" id="floatingTextarea"></textarea>
+                    <textarea class="form-control px-3" placeholder="Leave a comment here" formControlName="address" id="floatingTextarea"></textarea>
                     <label class="ms-3" for="floatingTextarea">Address</label>
                 </div>
                 <div class="form-floating col-xxl-6 mb-3">
-                    <select class="form-select" id="floatingSelect" [(ngModel)]="ticket.serviceField"
-                        [ngModelOptions]="{standalone: true}" aria-label="Floating label select example">
+                    <select class="form-select  px-3" id="floatingSelect" formControlName="serviceField" aria-label="Floating label select example">
                         <option selected value="">----- Select -----</option>
                         <option value="Electrical Services">Electrical Services</option>
                         <option value="Electronics Repair">Electronics Repair</option>
@@ -61,9 +63,8 @@
                     <label class="ms-3" for="floatingSelect">Pick Service Field</label>
                 </div>
                 <div class="form-floating col-xxl-6 mb-3">
-                    <select class="form-select" id="floatingSelect" [(ngModel)]="ticket.service"
-                        [ngModelOptions]="{standalone: true}" aria-label="Floating label select example">
-                        <option selected>----- Select -----</option>
+                    <select class="form-select  px-3" id="floatingSelect" formControlName="service" aria-label="Floating label select example">
+                        <option selected  value="">----- Select -----</option>
                         <option value="Mobile">Mobile</option>
                         <option value="Laptop">Laptop</option>
                         <option value="Washing Machine">Washing Machine</option>
@@ -73,8 +74,7 @@
                     <label class="ms-3" for="floatingSelect">Pick The Service</label>
                 </div>
                 <div class="form-floating col-12 mb-3">
-                    <textarea class="form-control" [(ngModel)]="ticket.issueDescription"
-                        [ngModelOptions]="{standalone: true}" placeholder="Leave a comment here" id="floatingTextarea2"
+                    <textarea class="form-control px-3" formControlName="issueDescription" placeholder="Leave a comment here" id="floatingTextarea2"
                         style="height: 100px"></textarea>
                     <label class="ms-3" for="floatingTextarea2">Issue In Detail</label>
                 </div>

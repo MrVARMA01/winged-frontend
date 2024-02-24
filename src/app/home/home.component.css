@@ -57,6 +57,10 @@ section .text3 {
     font-weight: 900;
     font-size: 30px;
 } 
+.cardB-more{
+    background-color: rgb(238, 238, 0);
+    color: #000000;
+}
 
 .bgImage {
     width: 100%;
@@ -86,4 +90,8 @@ h2 {
 }
 #cardD .cardD-icon img{
     width: 80px;
+}
+
+input.ng-touched.ng-invalid{
+    border: 2px solid red;
 }
