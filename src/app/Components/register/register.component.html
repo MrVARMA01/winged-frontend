@@ -1,0 +1,56 @@
+<section class="container mt-5 pt-5 text-center justify-content-center">
+    <img src="assets\Logo\Winged__1_-removebg-preview.png" width="100" alt="">
+    <h1 class="">Register Here !</h1>
+    <form class="p-5 d-flex justify-content-center" [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="col-12 col-md-4">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" formControlName="name" id="floatingInput"
+                    placeholder="name">
+                <!-- <div class="px-3 text-start"
+                    *ngIf="loginform.get('username')?.touched && loginform.get('username')?.hasError('email')"
+                    style="color: red; font-size: 12px;">*Enter Valid email</div> -->
+                <label for="floatingInput">Full Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" formControlName="phoneNumber" id="floatingInput"
+                    placeholder="phoneNumber">
+                <!-- <div class="px-3 text-start"
+                    *ngIf="loginform.get('username')?.touched && loginform.get('username')?.hasError('email')"
+                    style="color: red; font-size: 12px;">*Enter Valid email</div> -->
+                <label for="floatingInput">Phone</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" formControlName="address" id="floatingInput"
+                    placeholder="address">
+                <!-- <div class="px-3 text-start"
+                    *ngIf="loginform.get('username')?.touched && loginform.get('username')?.hasError('email')"
+                    style="color: red; font-size: 12px;">*Enter Valid email</div> -->
+                <label for="floatingInput">Address</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" formControlName="email" id="floatingInput"
+                    placeholder="email">
+                <!-- <div class="px-3 text-start"
+                    *ngIf="loginform.get('username')?.touched && loginform.get('username')?.hasError('email')"
+                    style="color: red; font-size: 12px;">*Enter Valid email</div> -->
+                <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" formControlName="password" id="floatingPassword"
+                    placeholder="Password">
+                <!-- <div class="px-3 text-start"
+                    *ngIf="loginform.get('password')?.touched && loginform.get('password')?.hasError('minlength')"
+                    style="color: red; font-size: 12px;">*Enter Valid password</div> -->
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="d-flex">
+                <div class="mt-4 col-8">
+                    <button type="submit" class="btn btn-success w-100">Register</button>
+                </div>
+                <div class="mt-4 col-4">
+                    <button type="button" class="btn btn-login w-50" routerLink="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

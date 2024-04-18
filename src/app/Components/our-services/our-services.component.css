@@ -1,0 +1,65 @@
+section {
+    margin-top: 150px;
+    color: #000000;
+}
+
+.winged {
+    color: white;
+    font-family: "Pacifico", cursive;
+}
+
+section h2 {
+    font-size: 130px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+section .text3 {
+    position: relative;
+    /* font-size: large; */
+}
+
+@media screen and (max-width: 768px) {
+
+    section h2 {
+        font-size: 50px;
+    }
+}
+
+#cardB {
+    overflow: hidden;
+    border: 0;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(220, 29, 253, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    transition: .5s;
+
+}
+
+#cardB img {
+    /* filter:brightness(0.6); */
+    object-fit: cover;
+}
+
+#cardB .card-body {
+    position: absolute;
+    color: #000000;
+}
+
+#cardB .card-body h3 {
+    font-weight: 900;
+    font-size: 35px;
+}
+
+.card-title {
+    color: transparent;
+}
+
+#cardB:hover {
+    transition: .5s;
+    background: #00000090;
+}
+
+#cardB:hover .card-title {
+    transition: .5s;
+    color: #ffffff !important;
+}

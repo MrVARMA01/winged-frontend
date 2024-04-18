@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Ticket } from '../ticket/ticket';
+import { Ticket } from '../Components/ticket/ticket';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,12 +8,27 @@ import { Observable } from 'rxjs';
 })
 export class TicketServiceService {
 
-  url="http://localhost:8080/"
+  url="http://localhost:8080/auth/"
   constructor(private http:HttpClient) { }
 
+
+  //************************************************* TEMP-TICKET **************************************************//
   
-  newTicket(ticket:any):Observable<any>{
-    console.log("step2: "+JSON.stringify(ticket));
-    return this.http.post(this.url+"new-ticket",ticket);
+  newTempTicket(ticket:any):Observable<any>{
+    return this.http.post(this.url+"new-temp-ticket",ticket);
+  }
+
+  userTickets(userId:number){
+    return this.http.get(this.url+"user-temp-tickets/"+userId);
+  }
+  
+  allServiceFields(){
+    return this.http.get(this.url+"all-service-fields");
+  }
+  filteredSubFields(id:number){
+    return this.http.get(this.url+"sub-fields-by-field/"+id);
+  }
+  filteredActualServices(id:number){
+    return this.http.get(this.url+"actual-services-by-sub-field/"+id);
   }
 }

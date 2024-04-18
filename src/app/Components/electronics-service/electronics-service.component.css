@@ -1,0 +1,35 @@
+#section1 img{
+    object-fit: cover;
+}
+#section1 h3{
+    position: absolute;
+    transform: translateY(500px);
+}
+.winged{
+    color: white;
+    font-family: "Pacifico", cursive;
+}
+section h2 {
+    font-size: 130px;
+    font-weight: 900;
+    color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+
+    section h2 {
+        font-size: 50px;
+    }
+}
+#cardB{
+    overflow: hidden;
+}
+#cardB img {
+    filter:brightness(0.6);
+    object-fit: cover;
+}
+#cardB .card-body {
+    position: absolute;
+    color: #ffffff;
+}
+.section6{
+}

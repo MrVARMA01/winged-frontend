@@ -1,0 +1,43 @@
+
+img{
+    width: 8%;
+}
+.container{
+    /* margin-top: 10px; */
+    overflow: hidden;
+    background-color: white;
+}
+.Logo{
+    font-family: "Pacifico", cursive;
+    font-size: 30px;
+}
+#WingedNavbarLabel{
+    font-family: "Pacifico", cursive;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.nav-item a.nav-link {
+    color: black;
+  }
+  
+.nav-item a.active {
+    animation-name:headerAnimation;
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: #fff;
+    border-radius: 5rem;
+    padding-left: 40px;
+    padding-right: 40px;
+    animation-timing-function: ease-out;
+    transition: .4s;
+ }
+form button.active{
+    background: linear-gradient(to right, #8e2de2, #4a00e0) !important;
+    color: #ffffff;
+    border-radius: 5rem;
+    padding-left: 40px;
+    padding-right: 40px;
+    transition: .4s;
+}
+
+  

@@ -1,0 +1,241 @@
+.container {
+    overflow: hidden;
+}
+
+span {
+    font-family: "Pacifico", cursive;
+}
+
+section {
+    margin-top: 150px;
+    color: #000000;
+}
+
+section h2 {
+    font-size: 130px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+section .text3 {
+    position: relative;
+    font-size: xx-large;
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        margin-top: 50px;
+    }
+
+    section h2 {
+        font-size: 50px;
+    }
+
+    section .text3 {
+        font-size: medium !important;
+    }
+}
+
+
+/*  STARTING CAROUSEL SECTION    */
+
+.sectionA {
+    margin-top: 0px;
+}
+
+#carousels img {
+    height: 750px;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+@media screen and (max-width:525px) {
+    .sectionA-text2 {
+        font-size: 75% !important;
+    }
+
+    .sectionA-button {
+        font-size: 70% !important;
+    }
+}
+
+/*  SERVICES SECCTION   */
+
+.sectionB {
+    margin-top: 0;
+    padding: 80px 0px;
+}
+
+#cardB {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+#cardB img {
+    width: 65%;
+}
+
+#cardB .card-body {
+    position: absolute;
+    border-radius: 2rem;
+    color: #ffffff;
+    width: 50%;
+    background: linear-gradient(to right, #320101, #ff00ff);
+}
+
+#cardB .card-body h3 {
+    font-weight: 900;
+    font-size: 15px;
+    padding: 0 !important;
+}
+
+.cardB-more {
+    background-color: rgb(238, 238, 0);
+    color: #000000;
+}
+
+
+
+/*   SECTION C   */
+.sectionC {
+    margin-top: 0;
+}
+.sectionC p,
+h2 {
+    color: #000000;
+}
+.sectionC h1 {
+    color: #000000 !important;
+    font-weight: 900;
+}
+img{
+    object-fit: cover !important;
+}
+
+
+
+/*   WHY WINGED SECTION   */
+.sectionD {
+    background: image-set('assets/Home/fresh-palm-leaves-pink-background.jpg');
+}
+
+.sectionD p {
+    font-size: 30px;
+    color: #000000;
+}
+
+#cardD {
+    overflow: hidden;
+    /* border: 20px solid white; */
+}
+
+#cardD img {
+    object-fit: fill;
+}
+
+#cardD .cardD-icon {
+    position: absolute;
+}
+
+#cardD .cardD-icon img {
+    width: 30%;
+}
+
+.cardD-text h3 {
+    /* font-size: 80%; */
+}
+
+
+
+#TicketForm h2{
+    font-size: 80px;
+}
+
+
+/*   SERVICE FORM SECTION   */
+@media screen and (max-width:525px) {
+    .sectionE .row{
+        padding: 6% !important;
+    }
+    .sectionE h3 {
+        font-size: 100%;
+    }
+}
+
+.cssbuttons-io {
+    position: relative;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    border-radius: 0.8em;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(to right, #1500ff, #0dff00);
+    color: ghostwhite;
+    overflow: hidden;
+}
+
+.cssbuttons-io svg {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+}
+
+.cssbuttons-io span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8em 1.2em 0.8em 1.05em;
+}
+
+.cssbuttons-io::before,
+.cssbuttons-io::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.cssbuttons-io::before {
+    content: "";
+    background: linear-gradient(to right, #0dff00, #1500ff);
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.cssbuttons-io:hover::before {
+    transform: translate3d(100%, 0, 0);
+}
+
+.cssbuttons-io:active {
+    transform: scale(0.95);
+}
+
+input.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+
+.phone-float {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 25px;
+    left: 20px;
+    z-index: 1000;
+}
+@media screen and (max-width:726px) {
+    .phone-float {
+        width: 50px;
+        height: 50px;
+        bottom: 5px;
+        left: 5px;
+    }
+}

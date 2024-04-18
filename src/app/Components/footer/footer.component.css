@@ -1,0 +1,18 @@
+.Logo{
+    font-family: "Pacifico", cursive;
+}
+#FS1 p{
+
+    font-size: 15px;
+}
+#FS1 ul{
+    list-style: none;
+    display: flex;
+}
+.social-icon{
+    width: 90%;
+    cursor: pointer;
+}
+.social-icon:hover{
+    width: 100%;
+}
