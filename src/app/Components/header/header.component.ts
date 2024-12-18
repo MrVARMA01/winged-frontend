@@ -9,13 +9,18 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class HeaderComponent {
 
+  token:any;
   activeRoute: string | undefined;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private loginService:LoginService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.activeRoute = event.urlAfterRedirects;
       }
     });
+  }
+
+  ngOnInit(){
+    this.token =this.loginService.isLoggedIn()
   }
 }

@@ -1,3 +1,4 @@
+<app-header></app-header>
 <section class="mt-5 mb-5 pt-5">
   <div class="container bg-white rounded-4">
     <div id="outSection" class=" d-flex align-items-start rounded-4">
@@ -12,7 +13,7 @@
             style="--fa-rotate-angle: 120deg;"></i></button>
         <button class="nav-link rounded-5 mb-3" id="v-pills-messages-tab" data-bs-toggle="pill"
           data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
-          aria-selected="false"><i class="fa-solid fa-robot"></i></button>
+          aria-selected="false"><i class="fa-solid fa-wallet"></i></button>
         <button class="nav-link rounded-5 mb-3" id="v-pills-settings-tab" data-bs-toggle="pill"
           data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
           aria-selected="false"><i class="fa-solid fa-gear"></i></button>
@@ -24,69 +25,125 @@
 
       <div class="tab-content w-100" id="v-pills-tabContent">
 
-        <div class=" tab-pane fade show active bg-white w-100 rounded-4" id="v-pills-home" role="tabpanel"
+        <div class="tab-pane fade show active bg-white w-100 rounded-4" id="v-pills-home" role="tabpanel"
           aria-labelledby="v-pills-home-tab">
           <div class="row">
-            <div class=" col-12 col-md-5 col-xl-4">
+            <div class="col-12 col-md-5 col-xl-4">
               <div id="InSection" class="bg-white m-3 p-5 rounded-4 text-center">
                 <img src="{{userData.profilePic}}" width="100" alt="image">
                 <div class="text-end">
-                  <!-- Update User button  -->
+                  <!-- Update User button -->
                   <button type="button" style="border: 0px; background-color: transparent;" data-bs-toggle="modal"
                     data-bs-target="#ModalForm">
-                    <i class="fa-solid fa-pen fa-lg"></i>
+                    <i class="fa-solid fa-pen fa-lg text-primary"></i>
                   </button>
-                  <!-- Update User Form  -->
+                  <!-- Update User Form -->
                   <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                         <div class="modal-body">
-                          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                          <button type="button" class="btn-close btn-close-danger" data-bs-dismiss="modal"
                             aria-label="Close"></button>
-                          <div class="myform bg-dark">
+                          <div class="myform rounded-5">
                             <h1 class="text-center"></h1>
-                            <form class="text-start" (ngSubmit)="updateUser()">
+                            <form class="text-start rounded-5 d-flex row p-4" (ngSubmit)="updateUser()">
                               <!-- image-selector.component.html -->
+                              <div class="form-floating text-center mb-3 mt-4">
+                                <img src="{{userData.profilePic}}" style="width: 50%; justify-content: center;"
+                                  alt="image">
+                              </div>
                               <div *ngIf="!showImageSelector">
                                 <div class="profile text-center">
-                                  <img *ngIf="selectedImage" [src]="userData.profilePic" width="100" alt="image">
-                                  <button class="btn btn-light" (click)="toggleImageSelector()">Edit Profile
-                                    Pic</button>
+                                  <!-- <img *ngIf="selectedImage" [src]="userData.profilePic" width="100" alt="image"> -->
+                                  <i class="fa-solid fa-pen fa-lg"
+                                    style="margin-left: 20%; transform: translateY(-35px); position:absolute;"
+                                    (click)="toggleImageSelector()"></i>
                                 </div>
                               </div>
-
                               <div *ngIf="showImageSelector" class="image-selector bg-light p-2 w-100 overflow-scroll"
                                 style="height: 500px;">
                                 <div class="row">
-                                  <div *ngFor="let image of images">
-                                    <img [src]="image.src" [alt]="image.alt" class="w-100 m-1"
+                                  <div *ngFor="let image of images" class="col-4">
+                                    <img [src]="image.src" [alt]="image.alt" class="img-fluid m-1"
                                       (click)="selectImage(image)">
                                   </div>
                                 </div>
                               </div>
-                              <div class="mb-3 mt-4">
-                                <label for="exampleInputEmail1" class="form-label">Name</label>
+                              <div class="form-floating  mb-3 mt-4">
                                 <input type="text" [(ngModel)]="userData.name" [ngModelOptions]="{standalone: true}"
                                   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label class="form-label ms-3" for="floatingInput">Full Name</label>
                               </div>
-                              <div class="mb-3 mt-4">
-                                <label for="exampleInputEmail1" class="form-label">Phone</label>
+                              <div class="form-floating mb-3">
                                 <input type="number" [(ngModel)]="userData.phoneNumber"
                                   [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputEmail1"
                                   aria-describedby="emailHelp">
+                                <label class="form-label ms-3" for="floatingInput">Phone</label>
                               </div>
-                              <div class="mb-3 mt-4">
-                                <label for="exampleInputEmail1" class="form-label">Email</label>
+                              <div class="form-floating mb-3">
                                 <input type="email" [(ngModel)]="userData.email" [ngModelOptions]="{standalone: true}"
                                   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label class="form-label ms-3" for="floatingInput">Email</label>
                               </div>
-                              <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Address</label>
-                                <input type="text" [(ngModel)]="userData.address" [ngModelOptions]="{standalone: true}"
-                                  class="form-control" id="exampleInputPassword1">
+                              <div class="row align-items-start">
+                                <div class="form-floating mb-3 col-10">
+                                  <select class="form-select px-3" id="floatingSelect" [(ngModel)]="userData.addressId"
+                                    [ngModelOptions]="{standalone: true}" aria-label="Floating label select example">
+                                    <option *ngFor="let add of userAddresses" value="{{add.id}}">
+                                      {{add.streetAddress}}, {{add.city}}, {{add.state}}, {{add.country}},
+                                      {{add.pinCode}}
+                                    </option>
+                                  </select>
+                                  <label class="ms-3" for="floatingSelect">address</label>
+                                </div>
+                                <div class="col-2  mt-2">
+                                  <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#AddressForm">+</button>
+                                </div>
                               </div>
-                              <button type="submit" class="btn btn-light mt-3">SUBMIT</button>
+                              <button type="submit" class="btn btn-primary mt-3">Update</button>
+                              <!-- <p>Not a member? <a href="#">Signup now</a></p> -->
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Update User Form -->
+                  <div class="modal fade" id="AddressForm" tabindex="-1" aria-labelledby="ModalFormLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <button type="button" class="btn-close btn-close-danger" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                          <div class="myform bg-white rounded-5">
+                            <h1 class="text-center"></h1>
+                            <form class="text-startbg-light rounded-5 d-flex row p-4" (ngSubmit)="newUserAddress()">
+                              <div class="form-floating  mb-3 mt-4">
+                                <input type="text" [(ngModel)]="newAddress.streetAddress"
+                                  [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputEmail1"
+                                  aria-describedby="emailHelp">
+                                <label class="form-label ms-3" for="floatingInput">Street Address</label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input type="text" [(ngModel)]="newAddress.city" [ngModelOptions]="{standalone: true}"
+                                  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label class="form-label ms-3" for="floatingInput">City</label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input type="text" [(ngModel)]="newAddress.state" [ngModelOptions]="{standalone: true}"
+                                  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <label class="form-label ms-3" for="floatingInput">State</label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input type="number" [(ngModel)]="newAddress.pinCode"
+                                  [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputEmail1"
+                                  aria-describedby="emailHelp">
+                                <label class="form-label ms-3" for="floatingInput">PinCode</label>
+                              </div>
+                              <button type="submit" class="btn btn-primary mt-3">Add</button>
                               <!-- <p>Not a member? <a href="#">Signup now</a></p> -->
                             </form>
                           </div>
@@ -97,27 +154,32 @@
                 </div>
               </div>
             </div>
-            <div class=" col-12 col-md-7 col-xl-4">
-              <div class="bg-white mx-4 p-4 m-3 rounded-4">
+            <div class="col-12 col-md-5 col-xl-4">
+              <div class="user-data bg-white text-start p-3">
                 <div class="d-flex">
-                  <i class="fa-solid fa-user mt-2"></i>
-                  <p id="InSection-text" class="ms-3 px-3 py-1 w-100 rounded-4">{{userData.name}}</p>
+                  <i class="fa-solid fa-id-card-clip mx-3 mt-2"></i>
+                  <p class="ticketBox p-1 px-4 rounded-5 text-start w-100">{{userData.userId}}</p>
                 </div>
                 <div class="d-flex">
-                  <i class="fa-solid fa-phone mt-2"></i><br>
-                  <p id="InSection-text" class="ms-3 px-3 py-1 w-100 rounded-4">{{userData.phoneNumber}}</p>
+                  <i class="fa-solid fa-street-view mx-3 mt-2"></i>
+                  <p class="ticketBox p-1 px-4 rounded-5 text-start w-100">{{userData.name}}</p>
                 </div>
                 <div class="d-flex">
-                  <i class="fa-solid fa-envelope mt-2"></i><br>
-                  <p id="InSection-text" class="ms-3 px-3 py-1 w-100 rounded-4">{{userData.email}}</p>
+                  <i class="fa-solid fa-at mx-3 mt-2"></i>
+                  <p class="ticketBox p-1 px-4 rounded-5 text-start w-100">{{userData.email}}</p>
                 </div>
                 <div class="d-flex">
-                  <i class="fa-solid fa-location-crosshairs  mt-2"></i><br>
-                  <p id="" class="ms-3 px-3 py-1 w-100 rounded-4">{{userData.address}}</p>
+                  <i class="fa-solid fa-phone mx-3 mt-2"></i>
+                  <p class="ticketBox p-1 px-4 rounded-5 text-start w-100">{{userData.phoneNumber}}</p>
+                </div>
+                <div class="d-flex">
+                  <i class="fa-solid fa-location-crosshairs mx-3 mt-2"></i>
+                  <p class="p-1 px-2 rounded-5 text-start w-100">{{address.streetAddress}}, {{address.city}},
+                    {{address.state}}, {{address.country}}, {{address.pinCode}}.</p>
                 </div>
               </div>
             </div>
-            <div class=" col-12 col-md-7 col-xl-4">
+            <div class="col-12 col-md-7 col-xl-4">
               <div class="bg-white mx-4 p-4 m-3 rounded-4 text-end">
                 <i class="fa-solid fa-right-from-bracket fa-xl" (click)="logout()"></i>
               </div>
@@ -125,36 +187,86 @@
           </div>
         </div>
 
+
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <div>
-            <h2 class="p-3"><b>All Your Tickets</b></h2>
+            <h2 class="p-3" *ngIf="userBookingsList.length>0"><b>Your Bookings</b></h2>
             <div class="container m-2 p-4 ">
-              <div class="row d-flex justify-content-center">
-                <div *ngFor="let list of userTicketsList" class=" m-3 p-3 bg-white col-md-4 col-lg-3 rounded-4">
-                  <div class="ticket w-100 p-3 ">
-                    <div class="row align-items-start justify-content-center">
-                      <div class="col text-center">
-                        <h6 class="ticket-Logo m-3">Winged</h6>
-                        <h5 class="text-dark p-0 mx-3 my-2">Service : {{list.service}}</h5>
-                        <div class="row p-4">
-                          <div class="col-6">
-                            <p class="ticket-text text-dark p-0  my-0"><b>Ticket Id</b> : {{list.id}} </p>
-                            <p class="ticket-text text-dark p-0  my-0"><b>Name</b> : {{list.customerName}} </p>
-                            <p class="ticket-text text-dark p-0  my-0"><b>Email</b> : {{list.email}}</p>
-                            <p class="ticket-text text-dark p-0  my-0"><b>Phone</b> : {{list.phone}}</p>
-                          </div>
-                          <div class="col-6">
-                            <p class="ticket-text text-dark p-0 my-0"><b>Booking Date</b> : {{list.bookingDate}}</p>
-                            <p class="ticket-text text-dark p-0  my-0"><b>Charge</b> : {{list.price}}Rs /-</p>
+              <div class="row mb-4">
+                <div class="col-xl-3 col-sm-6 mb-xl-0  my-2" *ngFor="let booking of userBookingsList; let i = index">
+                  <div class="card rounded-4 h-100 " *ngIf="booking.status!='Approved'">
+                    <div class="card-body p-3">
+                      <div class="row">
+                        <div class="col-4 text-end">
+                          <div class="icon icon-shape  shadow text-center border-radius-md">
+                            <i class="fa-solid fa-bookmark fa-2xl"></i>
                           </div>
                         </div>
+                        <div class="col-8">
+                          <h5 class="font-weight-bolder m-0">
+                            {{bookedActualServices[i]}} Service
+                          </h5>
+                          <em class="text-primary">{{booking.status}}</em>
+                          <p class="text-sm m-0 text-capitalize font-weight-bold">{{booking.bookingDate}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <p *ngIf="userBookingsList.length<=0 && userPRTicketsList.length<=0">No Bookings Yet!</p>
+          </div>
+          <div>
+            <h2 class="p-3" *ngIf="userPRTicketsList.length>0"><b>All Your Tickets</b></h2>
+            <div class="container m-2 p-4 ">
+              <div class="row d-flex justify-content-center">
+                <div *ngFor="let ticket of userPRTicketsList;  let i = index"
+                  class=" m-3 p-3 bg-white col-md-4 col-lg-3 rounded-4">
+                  <div class="ticket w-100 p-3">
+                    <div class="row align-items-start justify-content-center">
+                      <div class="col text-center">
+                        <img src="assets\Logo\Finalized\wings care (1)-fotor-bg-remover-202405022140.png" class="pt-2"
+                          width="80" alt="">
+                        <h5 class="text-dark p-0 mx-3 my-2">{{bookedActualServices[i]}} Service</h5>
+                        <div class="row pt-3 pb-1">
+                          <div class="col-6">
+                            <p class="ticket-text text-dark p-0  my-0"><b>Ticket Id</b> : {{ticket.bookingId}} </p>
+                            <p class="ticket-text text-dark p-0  my-0"><b>Name</b> : {{ticket.customerName}} </p>
+                            <p class="ticket-text text-dark p-0  my-0"><b>Email</b> : {{ticket.email}}</p>
+                            <p class="ticket-text text-dark p-0  my-0"><b>Phone</b> : {{ticket.phone}}</p>
+                            <p class="ticket-text text-dark p-0  my-0"><b>Address</b> : {{ticket.address}}</p>
+                            <p class="ticket-text text-dark p-0 my-0"><b>Booking Date</b> : {{ticket.bookingDate}}</p>
+                            <p class="ticket-text text-dark p-0  my-0"><b>Approval Date</b> : {{ticket.approvalDate}}
+                            </p>
+                          </div>
+                          <div class="col-6">
+                            <p class="ticket-text text-dark p-0  my-0"><b>Area</b> : {{ticket.areaInSqft}}.sqft</p>
+                            <p class="ticket-text text-dark p-0  my-0"><b>Price per Sqft</b> :
+                              ₹{{ticket.pricePerSqft}}.00</p>
+                            <p class="ticket-text text-dark p-0  my-0"><b>Service Charge</b> :
+                              ₹{{ticket.servicePrice}}.00</p>
+                            <h6 class=" text-dark p-0 mx-3 mt-3 mb-0" style="font-size: 13px;"><b>Total Charge</b> :
+                              <span> ₹{{ticket.totalPrice}}.00 /-</span>
+                            </h6>
+                          </div>
+                        </div>
+                        <hr style="border-top: 1px dashed #000;">
+                        <p class="ticket-text text-center text-dark p-0 my-0"><b>Payment Status</b> : <span
+                            style="color: rgb(211, 0, 0);font-weight: bold;">{{ticket.paymentStatus}}</span></p>
                         <h6 class=" text-dark p-0 mx-3" style="font-size: 13px;"><b>Status</b> : <span
-                            id="status">{{list.status}}</span></h6>
+                            id="status">{{ticket.status}}</span></h6>
                       </div>
                     </div>
                     <div class="row justify-content-center">
                       <div class="col text-center">
-                        <img id="ticket-image" src="assets\Services\Painting and Renovations\brush.png"
+                        <img id="ticket-image" *ngIf="ticket.serviceField == 1" src="assets\Ticket\brush.png"
+                          class="w-25 my-2" alt="">
+                        <img id="ticket-image" *ngIf="ticket.serviceField == 2" src="assets\Ticket\pcb-board1.png"
+                          class="w-25 my-2" alt="">
+                        <img id="ticket-image" *ngIf="ticket.serviceField == 3" src="assets\Ticket\wire.png"
                           class="w-25 my-2" alt="">
                       </div>
                     </div>

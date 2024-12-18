@@ -7,8 +7,14 @@ span {
 }
 
 section {
-    margin-top: 150px;
+    margin-top: 7%;
     color: #000000;
+}
+#carousel-text{
+    left: 8%;
+}
+#carousel-text h1{
+    font-size: 80px;
 }
 
 section h2 {
@@ -25,6 +31,9 @@ section .text3 {
 @media screen and (max-width: 768px) {
     section {
         margin-top: 50px;
+    }
+    #carousel-text h1{
+        font-size:35px;
     }
 
     section h2 {
@@ -46,7 +55,7 @@ section .text3 {
 #carousels img {
     height: 750px;
     object-fit: cover;
-    filter: brightness(0.6);
+    filter: brightness(0.7);
 }
 
 @media screen and (max-width:525px) {
@@ -58,6 +67,18 @@ section .text3 {
         font-size: 70% !important;
     }
 }
+.sectionA-text1{
+    animation: MainTitle1 1s linear;
+}
+/* 
+@keyframes MainTitle1{
+    0%{
+        font-size: xx-small;
+    }
+    100%{
+        font-size: 80px;
+    }
+} */
 
 /*  SERVICES SECCTION   */
 
@@ -74,6 +95,7 @@ section .text3 {
 
 #cardB img {
     width: 65%;
+    animation: cardB-img 1s linear;
 }
 
 #cardB .card-body {
@@ -83,16 +105,22 @@ section .text3 {
     width: 50%;
     background: linear-gradient(to right, #320101, #ff00ff);
 }
+#cardB:hover .card-body{
+    background: linear-gradient(to right, #1500ff, #0dff00);
+}
 
 #cardB .card-body h3 {
     font-weight: 900;
     font-size: 15px;
     padding: 0 !important;
 }
-
-.cardB-more {
-    background-color: rgb(238, 238, 0);
+#cardB .cardB-more {
     color: #000000;
+}
+@media screen and (max-width:974px) {
+    .cardB-more {
+        height: 0 !important;
+    }
 }
 
 
@@ -117,7 +145,7 @@ img{
 
 /*   WHY WINGED SECTION   */
 .sectionD {
-    background: image-set('assets/Home/fresh-palm-leaves-pink-background.jpg');
+    /* background: image-set('assets/Home/palm-leaves-corner-pink-backdrop.jpg'); */
 }
 
 .sectionD p {
@@ -127,7 +155,7 @@ img{
 
 #cardD {
     overflow: hidden;
-    /* border: 20px solid white; */
+    /* border: 5% solid rgb(112, 0, 0) !important ; */
 }
 
 #cardD img {
@@ -233,9 +261,128 @@ input.ng-touched.ng-invalid {
 }
 @media screen and (max-width:726px) {
     .phone-float {
-        width: 50px;
-        height: 50px;
-        bottom: 5px;
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
         left: 5px;
     }
 }
+
+/* 
+---------------------------------------------
+Infos Style
+--------------------------------------------- 
+*/
+
+.video-info {
+    background-color: #343434;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding-bottom: 60px;
+  }
+  
+  .video-info .video-thumb {
+    position: relative;
+    border-radius: 23px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    margin-top: -60px;
+  }
+  
+  .video-info .video-thumb a {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-23px, -23px);
+    background-color: #fff;
+    border-radius: 50%;
+    color: #5b03e4;
+    display: inline-block;
+    text-align: center;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+  }
+  
+  .video-info .section-heading {
+    padding: 60px 15px 30px 15px;
+  }
+  
+  .video-info .section-heading h2 {
+    color: #fff;
+    /* font-size: 50px; */
+    padding-right: 30px;
+  }
+  
+  .video-info .section-heading .line-dec {
+    background: #fff;
+  }
+  
+  .video-info .section-heading p {
+    color: #fff;
+  }
+  
+  .video-info .skills {
+    padding: 0px 15px;
+  }
+  
+  .video-info .skill-slide {
+    position: relative;
+    width: 100%;
+    background-color: rgba(249, 235, 255, 0.1);
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: 60px;
+  }
+  
+  .video-info .skill-slide .fill {
+    height: 10px;
+    background-color: #5b03e4;
+    border-radius: 5px;
+  }
+  
+  .video-info .skill-slide h6 {
+    position: absolute;
+    color: #fff;
+    font-size: 15px;
+    left: 0;
+    top: -25px;
+  }
+  
+  .video-info .skill-slide span {
+    position: absolute;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    top: -25px;
+  }
+  
+  .video-info .marketing .fill {
+    width: 90%;
+  }
+  
+  .video-info .digital .fill {
+    width: 80%;
+  }
+  
+  .video-info .media .fill {
+    width: 95%;
+  }
+  
+  .video-info .marketing span {
+    right: 10%;
+  }
+  
+  .video-info .digital span {
+    right: 20%;
+  }
+  
+  .video-info .media span {
+    right: 5%;
+  }
+  @media screen and (max-width: 768px) {
+    .sectionC2{
+        margin-top: 40%;
+    }
+  }

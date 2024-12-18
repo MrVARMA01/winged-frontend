@@ -17,10 +17,8 @@ export class AppComponent {
     const token = this.loginService.isLoggedIn();
     if(token!=null){
       this.isLoggedIn=true;
-      console.log("1:"+token);
     }
     else{
-      console.log("2:"+token);
       this.isLoggedIn=false;
     }
   }

@@ -1,17 +1,59 @@
-
-img{
+img {
     width: 8%;
 }
-.container{
+
+.container {
     /* margin-top: 10px; */
     overflow: hidden;
     background-color: white;
 }
-.Logo{
-    font-family: "Pacifico", cursive;
-    font-size: 30px;
+
+.Logo {
+    /* font-family: "Pacifico", cursive;
+    font-size: 30px; */
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 8%;
+    width: 6%;
 }
-#WingedNavbarLabel{
+.Logo2{
+    margin-left: 40% !important;
+}
+.user-button{
+    margin-top: 20%;
+}
+@media screen and (max-width:988px) {
+    .Logo {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 8%;
+        width: 20%;
+    }
+    .Logo2 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 8%;
+        width: 20% !important;
+    }
+    li a{
+        font-size: larger;
+        font-weight: bolder;
+        margin: 2%;
+    }
+}
+
+@media screen and (min-width:600px) and (max-width:1400px) {
+    .Logo {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 8%;
+        /* padding-left: 5px !important; */
+        width: 10%;
+    }
+
+}
+
+#WingedNavbarLabel {
     font-family: "Pacifico", cursive;
     font-size: 30px;
     font-weight: 900;
@@ -19,10 +61,10 @@ img{
 
 .nav-item a.nav-link {
     color: black;
-  }
-  
+}
+
 .nav-item a.active {
-    animation-name:headerAnimation;
+    animation-name: headerAnimation;
     background: linear-gradient(to right, #8e2de2, #4a00e0);
     color: #fff;
     border-radius: 5rem;
@@ -30,8 +72,9 @@ img{
     padding-right: 40px;
     animation-timing-function: ease-out;
     transition: .4s;
- }
-form button.active{
+}
+
+form button.active {
     background: linear-gradient(to right, #8e2de2, #4a00e0) !important;
     color: #ffffff;
     border-radius: 5rem;
@@ -39,5 +82,3 @@ form button.active{
     padding-right: 40px;
     transition: .4s;
 }
-
-  

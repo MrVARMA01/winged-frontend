@@ -30,8 +30,8 @@ export class ContatUsComponent {
   public newTempTicket() {
     console.log("step1: " + JSON.stringify(this.ticketForm.value));
 
-    this.service.newTempTicket(this.ticketForm.value).subscribe(
-      (response) => {
+    this.service.newBooking(this.ticketForm.value).subscribe(
+      (response:any) => {
         console.log(response);
         this.ticketForm.reset();
         Swal.fire({
@@ -41,7 +41,7 @@ export class ContatUsComponent {
           timer: 1500
         });
       },
-      (error) => {
+      (error:any) => {
         console.error(error);
         Swal.fire({
           title: "Invalid Details!",

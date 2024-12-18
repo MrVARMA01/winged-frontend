@@ -1,16 +1,90 @@
-#section1 img {
-    object-fit: cover;
+span {
+  font-family: "Pacifico", cursive;
 }
 
-#section1 h3 {
-    position: absolute;
-    transform: translateY(500px);
+/*  STARTING CAROUSEL SECTION    */
+
+.sectionA {
+  margin-top: 0px;
+}
+
+#carousels img {
+  height: 750px;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+@media screen and (max-width:525px) {
+  .sectionA-text2 {
+      font-size: 75% !important;
+  }
+
+  .sectionA-button {
+      font-size: 70% !important;
+  }
 }
 
 .winged {
     color: white;
     font-family: "Pacifico", cursive;
 }
+
+.cssbuttons-io {
+  position: relative;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  border-radius: 0.8em;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(to right, #1500ff, #0dff00);
+  color: ghostwhite;
+  overflow: hidden;
+}
+
+.cssbuttons-io svg {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
+}
+
+.cssbuttons-io span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8em 1.2em 0.8em 1.05em;
+}
+
+.cssbuttons-io::before,
+.cssbuttons-io::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.cssbuttons-io::before {
+  content: "";
+  background: linear-gradient(to right, #1500ff, #0dff00);
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.cssbuttons-io:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.cssbuttons-io:active {
+  transform: scale(0.95);
+}
+
 
 section h2 {
     font-size: 130px;
@@ -38,14 +112,6 @@ section h2 {
     position: absolute;
     color: #ffffff;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -173,4 +239,69 @@ section h2 {
   .swiper-navBtn{
     display: none;
   }
+}
+
+
+
+
+.service-item,
+.contact-item {
+    background: url('src/assets/Services/Painting and Renovations/view-beautifully-decorated-round-table-with-natural-fir-branch-candle-two-flutes-plates-against-classic-sofa-modern-apartment.jpg') top center no-repeat;
+    background-size: cover;
+    transition: .5s;
+}
+
+.service-item:hover,
+.contact-item:hover {
+    /* background: url(../img/service.jpg) bottom center no-repeat; */
+    background-color: #f97ccb;
+    background-size: cover;
+}
+
+.service-item .service-icon,
+.contact-item .contact-icon {
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
+    color: var(--secondary);
+    background: #FFFFFF;
+    transform: rotate(-45deg);
+}
+
+.service-item .service-icon div,
+.contact-item .contact-icon div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    transition: .5s;
+}
+
+.service-item .service-icon i,
+.contact-item .contact-icon i {
+    transform: rotate(45deg);
+    transition: .5s;
+}
+
+.service-item:hover .service-icon div,
+.contact-item:hover .contact-icon div {
+    background: var(--secondary);
+}
+
+.service-item:hover .service-icon i,
+.contact-item:hover .contact-icon i {
+    color: var(--primary);
+}
+
+.service-item a.btn {
+    position: relative;
+    bottom: -30px;
+    opacity: 0;
+}
+
+.service-item:hover a.btn {
+    bottom: 0;
+    opacity: 1;
 }

@@ -16,3 +16,27 @@
 .social-icon:hover{
     width: 100%;
 }
+h3{
+    color: #a2b9ff !important;
+    margin-bottom: 5%;
+}
+i{
+    color: #a2b9ff;
+}
+p{
+    color: #c5c5c5;
+}
+p:hover {
+    color: #ffffff;
+}
+@media screen and (max-width:400px) {
+    #FS1 p{
+        padding: 0% !important;
+    }
+}
+@media screen and (max-width:763px) {
+    .d2,.d3{
+        text-align: center !important;
+        margin-top: 0% !important;
+    }
+}

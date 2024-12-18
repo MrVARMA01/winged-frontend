@@ -1,8 +1,9 @@
 <header class="container">
     <nav class="navbar navbar-expand-lg fixed-top bg-transparent">
         <div class="container align-middle rounded-4 mt-2">
-            <a class="navbar-brand Logo ms-5 fw-bold" routerLink="">Winged</a>
+            <!-- <a class="navbar-brand Logo ms-5 fw-bold" routerLink="">Winged</a> -->
             <!-- <i class="fa-brands fa-studiovinari" style="font-size: 40px;"></i> -->
+            <img src="assets\Logo\Finalized\wings care (1)-fotor-bg-remover-202405022140.png" alt="" class="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -10,7 +11,7 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="Winged-title" id="WingedNavbarLabel">Winged</h5>
+                    <img src="assets\Logo\Finalized\wings care (1)-fotor-bg-remover-202405022140.png" alt="" class="Logo Logo2">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body ">
@@ -19,10 +20,10 @@
                             <a [class.active]="activeRoute === '/' || activeRoute === ''" class="nav-link  mx-lg-2" data-bs-dismiss="offcanvas" aria-current="page" routerLink="">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a [class.active]="activeRoute === '/about'" class="nav-link mx-lg-2" data-bs-dismiss="offcanvas" routerLink="about">About</a>
+                            <a [class.active]="activeRoute === '/about'" class="nav-link mx-lg-2" data-bs-dismiss="offcanvas" routerLink="/about">About</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a [class.active]="activeRoute === '/our-services'" class="nav-link mx-lg-2" data-bs-dismiss="offcanvas" routerLink="our-services">Services</a>
+                            <a [class.active]="activeRoute === '/our-services'" class="nav-link mx-lg-2" data-bs-dismiss="offcanvas" routerLink="/our-services">Services</a>
                             <!-- <a [class.active]="activeRoute === '/our-services'" class="nav-link dropdown-toggle mx-lg-2" data-bs-dismiss="offcanvas" routerLink="our-services" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Services
@@ -43,18 +44,17 @@
                             </ul>-->
                         </li>
                         <li class="nav-item">
-                            <a [class.active]="activeRoute === '/careers'" class="nav-link mx-lg-2" data-bs-dismiss="offcanvas" routerLink="careers">Careers</a>
+                            <a [class.active]="activeRoute === '/careers'" class="nav-link mx-lg-2" data-bs-dismiss="offcanvas" routerLink="/careers">Careers</a>
                         </li>
                         <li class="nav-item">
-                            <a [class.active]="activeRoute === '/contact-us'" class="nav-link mx-lg-2" data-bs-dismiss="offcanvas" routerLink="contact-us">Contact</a>
+                            <a [class.active]="activeRoute === '/contact-us'" class="nav-link mx-lg-2" data-bs-dismiss="offcanvas" routerLink="/contact-us">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- <input class="form-control me-2 rounded-5" type="search" placeholder="Search" aria-label="Search"> -->
+                            <a [class.active]="activeRoute === '/user-account'" *ngIf="token" class="nav-link mx-lg-2" data-bs-dismiss="offcanvas" routerLink="/user-account"><i class="fa-solid fa-user-astronaut" style="font-size: x-large;"></i></a>
+                            <a [class.active]="activeRoute === '/user-account'" *ngIf="!token" class="nav-link mx-lg-2 sign-in px-3" data-bs-dismiss="offcanvas" routerLink="/login"><i class="fa-solid fa-user-astronaut" style="font-size: x-large;"></i></a>
                         </li>
                     </ul>
-                    <form class="d-flex mt-0 mx-lg-2" role="search">
-                        <input class="form-control me-2 rounded-5" type="search" placeholder="Search" aria-label="Search">
-                        <button [class.active]="activeRoute === '/user-account'" class="border-0 bg-transparent ms-2" data-bs-dismiss="offcanvas" routerLink="user-account">
-                            <i class="fa-solid fa-user-astronaut" style="font-size: x-large;"></i>
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>

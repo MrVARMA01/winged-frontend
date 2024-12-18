@@ -3,94 +3,92 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { TicketServiceService } from 'src/app/services/ticket-service.service';
 import Swal from 'sweetalert2';
+import { HomeComponent } from '../home/home.component';
+import { Booking } from '../user-account/booking';
 
 @Component({
   selector: 'app-painting-renovations-service',
   templateUrl: './painting-renovations-service.component.html',
   styleUrls: ['./painting-renovations-service.component.css']
 })
-export class PaintingRenovationsServiceComponent {
-  serviceFields:any;
-  selecedServiceFieldId:any;
-  subServices:any;
-  selecedSubServiceId:any;
-  actualservices:any;
+export class PaintingRenovationsServiceComponent{
 
-  ticketForm = new FormGroup({
-    userId: new FormControl(0, [Validators.required]),
-    customerName: new FormControl("", [Validators.required, Validators.minLength(2)]),
-    email: new FormControl("", [Validators.required, Validators.email]),
-    phone: new FormControl(91, [Validators.required, Validators.minLength(12)]),
-    address: new FormControl("", [Validators.required, Validators.minLength(8)]),
-    serviceField: new FormControl(0, [Validators.required,]),
-    subService: new FormControl(0, [Validators.required,]),
-    actualService: new FormControl(0, [Validators.required,]),
-    areaInMeters: new FormControl(0, [Validators.required,]),
-    issueDescription: new FormControl("", [Validators.required, Validators.minLength(8)]),
-  })
+  booking:Booking= new Booking();
+  userData:any;
+  paintingsList:any;
+  polishingsList:any;
+  renovationsList:any;
 
-  constructor(private service: TicketServiceService, private loginService:LoginService) { }
-
-
+  constructor(private loginService:LoginService, private ticketService:TicketServiceService){ }
   ngOnInit(){
-    this.allServiceFields();
+    this.userData = this.loginService.getUserData();
+    this.paintingServices();
+    this.polishingServices();
+    this.renovstionServices();
   }
 
-  public newTempTicket() {
-    if (this.ticketForm && this.ticketForm.get('userId')) {
-      // Set the userId value
-      const user = this.loginService.getUserData();
-      this.ticketForm.get('userId')?.setValue(user.userId);
-    }
-    this.service.newTempTicket(this.ticketForm.value).subscribe(
-      (response) => {
-        console.log(response.message);
-        this.ticketForm.reset();
+  newBooking(subField:number,actualService:number){
+    this.booking.userId = this.userData.userId;
+    this.booking.customerName = this.userData.name;
+    this.booking.email = this.userData.email;
+    this.booking.phone = this.userData.phoneNumber;
+    this.booking.address = this.userData.addressId;
+    this.booking.serviceField= 1;
+    this.booking.subField = subField;
+    this.booking.actualService =actualService;
+    console.log(this.booking);
+    this.ticketService.newBooking(this.booking).subscribe(
+      (resp:any)=>{
+        console.log(resp.response);
         Swal.fire({
-          title: "Ticket Created!",
+          title: "Service Booked!",
           icon: "success",
           showConfirmButton: false,
           timer: 1500
         });
       },
-      (error) => {
+      (error:any)=>{
         console.error(error);
         Swal.fire({
-          title: "Invalid Details!",
-          icon: "error"
+          title: "Booking Failed!",
+          icon: "error",
+          showConfirmButton: true,
+          timer: 1500
         });
-      });
-  }
-
-  allServiceFields(){
-    this.service.allServiceFields().subscribe(
-      response=>{
-        console.log(response);
-        this.serviceFields = response;
-      },
-      error=>{console.error(error);}
+      }
     )
   }
 
-  filteredSubServices(){
-    this.selecedServiceFieldId = this.ticketForm.get('serviceField')?.value;
-    this.service.filteredSubFields(this.selecedServiceFieldId).subscribe(
-      response=>{
-        console.log(response);
-        this.subServices = response;
+  paintingServices(){
+    this.ticketService.filteredActualServices(2).subscribe(
+      (resp:any)=>{        
+        this.paintingsList = resp.response;     
       },
-      error=>{console.error(error);}
+      (error:any)=>{
+        console.error(error);
+      }
     )
   }
 
-  filteredActualServices(){
-    this.selecedSubServiceId = this.ticketForm.get('subService')?.value;
-    this.service.filteredActualServices(this.selecedSubServiceId).subscribe(
-      response=>{
-        console.log(response);
-        this.actualservices = response;
+  polishingServices(){
+    this.ticketService.filteredActualServices(3).subscribe(
+      (resp:any)=>{
+        this.polishingsList = resp.response;     
       },
-      error=>{console.error(error);}
+      (error:any)=>{
+        console.error(error);
+      }
+    )
+  }
+
+  renovstionServices(){
+    this.ticketService.filteredActualServices(4).subscribe(
+      (resp:any)=>{
+        this.renovationsList = resp.response;     
+      },
+      (error:any)=>{
+        console.error(error);
+      }
     )
   }
 

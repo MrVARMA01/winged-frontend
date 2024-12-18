@@ -21,24 +21,24 @@ import { CarpentryServiceComponent } from './Components/carpentry-service/carpen
 import { CivilServiceComponent } from './Components/civil-service/civil-service.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent,canActivate:[AuthGuard]},
-  {path:'about',component:AboutComponent,canActivate:[AuthGuard]},
-  {path:'our-services',component:OurServicesComponent,canActivate:[AuthGuard]},
-  {path:'careers',component:CareersComponent,canActivate:[AuthGuard]},
-  {path:'contact-us',component:ContatUsComponent,canActivate:[AuthGuard]},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
-  {path:'user-account',component:UserAccountComponent,canActivate:[AuthGuard]},
+  {path:'',component:HomeComponent},
+  {path:'about',component:AboutComponent},
+  {path:'our-services',component:OurServicesComponent},
+  {path:'careers',component:CareersComponent},
+  {path:'contact-us',component:ContatUsComponent},
+  {path:'user-account',component:UserAccountComponent},
   {path:'change-password',component:ChangePasswordComponent,canActivate:[AuthGuard]},
-  {path:'winged-service-1',component:PaintingRenovationsServiceComponent,canActivate:[AuthGuard]},
-  {path:'winged-service-2',component:ElectronicsServiceComponent,canActivate:[AuthGuard]},
-  {path:'winged-service-3',component:ElectricalsServiceComponent,canActivate:[AuthGuard]},
-  {path:'winged-service-4',component:SoftwareApplicationsServiceComponent,canActivate:[AuthGuard]},
-  {path:'winged-service-5',component:PlumbingServiceComponent,canActivate:[AuthGuard]},
-  {path:'winged-service-6',component:MechanicalsServiceComponent,canActivate:[AuthGuard]},
-  {path:'winged-service-7',component:CarpentryServiceComponent,canActivate:[AuthGuard]},
-  {path:'winged-service-8',component:CivilServiceComponent,canActivate:[AuthGuard]},
+  {path:'winged-service-1',component:PaintingRenovationsServiceComponent},
+  {path:'winged-service-2',component:ElectronicsServiceComponent},
+  {path:'winged-service-3',component:ElectricalsServiceComponent},
+  {path:'winged-service-4',component:SoftwareApplicationsServiceComponent},
+  {path:'winged-service-5',component:PlumbingServiceComponent},
+  {path:'winged-service-6',component:MechanicalsServiceComponent},
+  {path:'winged-service-7',component:CarpentryServiceComponent},
+  {path:'winged-service-8',component:CivilServiceComponent},
 
 ];
 

@@ -29,8 +29,8 @@ section .text3 {
 #cardB {
     overflow: hidden;
     border: 0;
-    background: rgb(131, 58, 180);
-    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(220, 29, 253, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    border-radius: 5rem !important;
+    background: linear-gradient(0deg, #4d4d4d, rgb(143, 143, 143));
     transition: .5s;
 
 }
@@ -55,11 +55,19 @@ section .text3 {
 }
 
 #cardB:hover {
-    transition: .5s;
-    background: #00000090;
+    transition: 1s;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(220, 29, 253, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    border-radius: 50rem !important;
 }
 
-#cardB:hover .card-title {
+ .card-title {
     transition: .5s;
     color: #ffffff !important;
+    border-radius: 2rem;
+    background: -webkit-linear-gradient(0deg,rgba(255, 255, 255), rgba(255, 255, 255));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    backdrop-filter: blur(25px);
 }

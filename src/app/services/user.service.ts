@@ -19,9 +19,14 @@ export class UserService {
   userByUsername(email: any): Observable<any> {
     return this.http.get(`${this.url}user/${email}`);
   }
-
   updateUser(user:User):any{
     return this.http.put(`${this.url}update-user/${user.userId}`,user);
+  }
+  addressById(id:number){
+    return this.http.get(`${this.url}address/`+id);
+  }
+  newUserAddress(id:number,address:any){
+    return this.http.put(`${this.url}new-user-address/`+id ,address);
   }
 
 }

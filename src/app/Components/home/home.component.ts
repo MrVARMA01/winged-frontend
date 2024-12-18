@@ -30,7 +30,7 @@ export class HomeComponent {
     issueDescription: new FormControl("", [Validators.required, Validators.minLength(8)]),
   })
 
-  constructor(private service: TicketServiceService, private loginService:LoginService) { }
+  constructor(private ticketService: TicketServiceService, private loginService:LoginService) { }
 
 
   ngOnInit(){
@@ -43,9 +43,10 @@ export class HomeComponent {
       const user = this.loginService.getUserData();
       this.ticketForm.get('userId')?.setValue(user.userId);
     }
-    this.service.newTempTicket(this.ticketForm.value).subscribe(
-      (response) => {
-        console.log(response.message);
+    console.log(this.ticketForm.value);    
+    this.ticketService.newBooking(this.ticketForm.value).subscribe(
+      (response:any) => {
+        console.log(response.status);
         this.ticketForm.reset();
         Swal.fire({
           title: "Service Booked!",
@@ -54,7 +55,7 @@ export class HomeComponent {
           timer: 1500
         });
       },
-      (error) => {
+      (error:any) => {
         console.error(error);
         Swal.fire({
           title: "Invalid Details!",
@@ -64,9 +65,8 @@ export class HomeComponent {
   }
 
   allServiceFields(){
-    this.service.allServiceFields().subscribe(
+    this.ticketService.allServiceFields().subscribe(
       response=>{
-        console.log(response);
         this.serviceFields = response;
       },
       error=>{console.error(error);}
@@ -75,9 +75,8 @@ export class HomeComponent {
 
   filteredSubFields(){
     this.selecedServiceFieldId = this.ticketForm.get('serviceField')?.value;    
-    this.service.filteredSubFields(this.selecedServiceFieldId).subscribe(
+    this.ticketService.filteredSubFields(this.selecedServiceFieldId).subscribe(
       response=>{
-        console.log(response);
         this.subFields = response;
       },
       error=>{console.error(error);}
@@ -86,10 +85,9 @@ export class HomeComponent {
 
   filteredActualServices(){
     this.selecedSubFieldId = this.ticketForm.get('subField')?.value;
-    console.log("subField ID :"+ this.selecedSubFieldId);
-    this.service.filteredActualServices(this.selecedSubFieldId).subscribe(
+    // console.log("subField ID :"+ this.selecedSubFieldId);
+    this.ticketService.filteredActualServices(this.selecedSubFieldId).subscribe(
       response=>{
-        console.log(response);
         this.actualservices = response;
       },
       error=>{console.error(error);}

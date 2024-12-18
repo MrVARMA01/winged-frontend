@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { TicketServiceService } from 'src/app/services/ticket-service.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 import { User } from './User';
+import { Booking } from './booking';
 
 @Component({
   selector: 'app-user-account',
@@ -15,16 +16,36 @@ export class UserAccountComponent {
 
   loggedInUserData: any;
   userData = new User();
-  userTicketsList: any;
-  // updaterUser={profilePic:'', name:'', phoneNumber:91, email:'', address:''};
-
+  userAddresses: any;
+  userBookingsList: Booking[] = [];
+  userPRTicketsList: any[] = [];
+  userElectronicsTicketsList: any;
+  bookedActualServices: string[] = [];
+  actualserviceDetsilsData: any;
+  address: any = {
+    streetAddress: '',
+    city: '',
+    state: '',
+    country: 'India',
+    pinCode: 0
+  };
+  newAddress:any = {
+    streetAddress: '',
+    city: '',
+    state: '',
+    country: 'India',
+    pinCode: 0
+  };
+  selectedImage: any;
+  showImageSelector = false;
   CPform = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.minLength(3)])
   });
+
   constructor(private loginService: LoginService, private userService: UserService, private ticketService: TicketServiceService) {
   }
-  // image-selector.component.ts
+
 
   images = [
     { src: 'assets/User/p01.png', alt: 'Image' },
@@ -61,19 +82,19 @@ export class UserAccountComponent {
 
   ngOnInit() {
     this.user();
-    this.userTickets();
+    this.userBookings();
+    this.userPRTickets();
+    this.userElectronicsTickets();
   }
 
 
 
-  selectedImage: any;
-  showImageSelector = false;
+
 
   selectImage(image: any) {
     this.userData.profilePic = image.src;
     this.selectedImage = image;
     console.log("IMAGE ::: " + this.selectedImage.src);
-
     this.toggleImageSelector();
   }
 
@@ -84,52 +105,81 @@ export class UserAccountComponent {
 
   logout() {
     this.loginService.Logout();
-    window.location.reload();
+    window.location.href = "/login";
   }
 
 
   user() {
     this.loggedInUserData = this.loginService.getUserData();
     this.userData = this.loggedInUserData;
-    // // Call userByUsername method and subscribe to the Observable
-    // this.userService.userByUsername(this.email).subscribe(
-    //   (response: any) => {
-    //     this.userData = response;
-    //     // this.userData.profilePic = "assets/User/" + this.userData.profilePic + ".png";
-    //   },
-    //   (error: any) => {
-    //     // Handle error
-    //     console.error(error);
-    //   }
-    // );
+    this.userService.addressById(this.userData.addressId).subscribe(
+      (response: any) => {
+        this.address = response.response;
+        this.userAddresses = this.userData.addresses;
+      },
+      (error: any) => { console.log(error); }
+    )
   }
 
 
-  userTickets() {
-    this.ticketService.userTickets(this.userData.userId).subscribe(
-      (resp:any) => {
-        console.log(resp);
-        this.userTicketsList = resp.response;
+
+  userBookings() {
+    this.ticketService.userBookings(this.userData.userId).subscribe(
+      (resp: any) => {
+        this.userBookingsList = resp.response;
+        // Iterate through each ticket and push its actualService value to bookedActualServices
+        this.userBookingsList.forEach(ticket => {
+          this.ticketService.ActualService(ticket.actualService).subscribe(
+            (resp: any) => {
+              this.bookedActualServices.push(resp.response.service);
+            },
+            (error: any) => {
+              console.log(error);
+            }
+          )
+        });
       },
-      (error:any) => {
+      (error: any) => {
         console.error(error);
       }
     )
   }
 
+  userPRTickets() {
+    this.ticketService.userPaintingAndRenovationsTickets(this.userData.userId).subscribe(
+      (resp: any) => {
+        this.userPRTicketsList = resp.response;
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    )
+  }
+
+  userElectronicsTickets() {
+    this.ticketService.userElectronicsTickets(this.userData.userId).subscribe(
+      (resp: any) => {
+        this.userElectronicsTicketsList = resp.response;
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    )
+  }
 
   updateUser() {
-    localStorage.setItem('user',JSON.stringify(this.userData));
+    localStorage.setItem('user', JSON.stringify(this.userData));
     this.userService.updateUser(this.userData).subscribe(
       (response: any) => {
-        console.log();
         Swal.fire({
           title: "Record Updated !",
           icon: "success",
           showConfirmButton: false,
           timer: 1500
         });
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
       },
       (error: any) => {
         console.error(error);
@@ -142,6 +192,46 @@ export class UserAccountComponent {
         window.location.reload();
       }
     )
+  }
+
+  newUserAddress() {
+    this.userService.newUserAddress(this.userData.userId, this.newAddress).subscribe(
+      (response: any) => {
+        localStorage.setItem('user',JSON.stringify(response.response));
+        console.log(this.userData.userId, this.newAddress);
+        Swal.fire({
+          title: "Address Added!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        setTimeout(() => {
+          this.user();
+          window.location.reload();
+        }, 1500);
+      },
+      (error: any) => {
+        console.error(error);
+        Swal.fire({
+          title: "Record Failed!",
+          icon: "error",
+          showConfirmButton: true,
+        });
+      })
+
+  }
+
+
+  @ViewChild('popupFormContainer') popupFormContainer!: ElementRef;
+  isPopupVisible = false;
+
+  togglePopup() {
+    // this.StatusUpdateId = id
+    this.isPopupVisible = !this.isPopupVisible;
+  }
+
+  closePopupForm() {
+    this.isPopupVisible = false;
   }
 
 
@@ -160,12 +250,12 @@ export class UserAccountComponent {
       error => {
         console.error(error);
         this.CPform.reset();
-        // Swal.fire({
-        //   title: "Error in changing password !",
-        //   icon: "error",
-        //   showConfirmButton: false,
-        //   timer: 1500
-        // });
+        Swal.fire({
+          title: "Error in changing password !",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     )
   }
